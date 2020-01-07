@@ -7,9 +7,17 @@
   </head>
   <body>
     <img id="prv_img" alt="your image" src="meme-title.png" width="700px" />
-    <textarea class="txt-area" id="top-text">ENTER TOP TEXT ...</textarea>
-    <textarea class="txt-area" id="bottom-text">ENTER BOTTOM TEXT ...</textarea>
-    <div>
+    <textarea
+      class="txt-area"
+      id="top-text"
+      placeholder="ENTER TOP TEXT ..."
+    ></textarea>
+    <textarea
+      class="txt-area"
+      id="bottom-text"
+      placeholder="ENTER BOTTOM TEXT ..."
+    ></textarea>
+    <div id="txt-size">
       TEXT SIZE:
       <input
         class="slider"
@@ -21,7 +29,7 @@
         step="0.01"
       />
     </div>
-    <div>
+    <div id="txt-color">
       TEXT COLOR:
       <input id="text-color" type="color" value="#ffffff" />
     </div>
@@ -33,7 +41,7 @@
       <button class="btns" id="download-btn">DOWNLOAD MEME</button>
     </div>
     <canvas id="meme-canvas"></canvas>
-    <div id="patrat" hidden="true"></div>
+
     <script src="meme-generator.js"></script>
   </body>
 </html>

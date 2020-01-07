@@ -4,14 +4,39 @@
 }
 
 textarea {
+  display: grid;
+  grid-gap: 1em;
+  position: relative;
+  left: 400px;
   width: 300px;
   height: 50px;
 }
 
+#txt-size {
+  position: relative;
+  left: 400px;
+  top: 150px;
+}
+
+#txt-color {
+  position: relative;
+  left: 400px;
+  top: 170px;
+}
+
+#image-input {
+  position: relative;
+  left: 400px;
+  top: 60px;
+}
+
 body {
-  display: grid;
-  grid-template-columns: 30%;
-  grid-row-gap: 20px;
+  position: relative;
+  left: 200px;
+  /* display: grid;
+  grid-template-columns: repeat(2, 2fr 1fr 1fr);
+  grid-auto-rows: 100px;
+  grid-row-gap: 10px; */
 
   background-color: lightgrey;
 }
@@ -22,7 +47,12 @@ body {
 }
 
 #meme-canvas {
-  max-height: 400px;
+  transform-origin: center;
+  position: relative;
+  left: 850px;
+  top: -340px;
+  max-height: 500px;
+  max-width: 800px;
 }
 
 button {
@@ -45,14 +75,23 @@ button:hover {
   color: black;
 }
 
+.btns {
+  position: relative;
+  left: 300px;
+  top: 200px;
+}
+
+#prv_img {
+  position: relative;
+  left: 180px;
+}
+
+/* #txt_area {
+  position: relative;
+  top: 1000px;
+} */
+
 .slider {
   flex: 1;
   align-items: right;
-}
-
-#patrat {
-  position: absolute;
-  background-color: yellow;
-  width: 500px;
-  height: 500px;
 }
