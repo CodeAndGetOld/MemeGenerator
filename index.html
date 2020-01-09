@@ -3,44 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <title>THE MEME GENERATOR</title>
-    <link rel="stylesheet" href="meme-generator.css" />
+    <link rel="stylesheet" href="meme-generator-grid.css" />
   </head>
   <body>
-    <img id="prv_img" alt="your image" src="meme-title.png" width="700px" />
-    <textarea
-      class="txt-area"
-      id="top-text"
-      placeholder="ENTER TOP TEXT ..."
-    ></textarea>
-    <textarea
-      class="txt-area"
-      id="bottom-text"
-      placeholder="ENTER BOTTOM TEXT ..."
-    ></textarea>
-    <div id="txt-size">
-      TEXT SIZE:
-      <input
-        class="slider"
-        id="text-size"
-        type="range"
-        min="0.05"
-        max="0.3"
-        value="0.1"
-        step="0.01"
+    <div id="rectangle"></div>
+    <div class="grid-container">
+      <img
+        id="prv_img"
+        class="grid-item"
+        alt="your image"
+        src="meme-title.png"
+        width="700px"
       />
+      <div id="no-header">
+        <div class="grid-item" id="txt-area">
+          <div id="top-txt-area">
+            <textarea id="top-text" placeholder="ENTER TOP TEXT ..."></textarea>
+          </div>
+          <div id="bottom-text-area">
+            <textarea
+              id="bottom-text"
+              placeholder="ENTER BOTTOM TEXT ..."
+            ></textarea>
+          </div>
+        </div>
+        <div id="txt-size" class="grid-item">
+          TEXT SIZE:
+          <input
+            class="slider"
+            class="grid-item"
+            id="text-size"
+            type="range"
+            min="0.05"
+            max="0.3"
+            value="0.1"
+            step="0.01"
+          />
+        </div>
+        <div id="grid-txt-color" class="grid-item">
+          TEXT COLOR:
+          <input id="txt-color" type="color" value="#ffffff" />
+        </div>
+        <div id="img-input">
+          <input
+            type="file"
+            id="image-input"
+            class="grid-item"
+            accept="image/*"
+          />
+        </div>
+      </div>
+
+      <div class="btns">
+        <button class="grid-item" class="the-buttons" id="generate-btn">
+          GENERATE MEME!
+        </button>
+        <button class="grid-item" class="the-buttons" id="download-btn">
+          DOWNLOAD MEME
+        </button>
+      </div>
+      <canvas id="meme-canvas" class="grid-item"></canvas>
     </div>
-    <div id="txt-color">
-      TEXT COLOR:
-      <input id="text-color" type="color" value="#ffffff" />
-    </div>
-    <div>
-      <input type="file" id="image-input" accept="image/*" />
-    </div>
-    <div>
-      <button class="btns" id="generate-btn">GENERATE MEME!</button>
-      <button class="btns" id="download-btn">DOWNLOAD MEME</button>
-    </div>
-    <canvas id="meme-canvas"></canvas>
 
     <script src="meme-generator.js"></script>
   </body>

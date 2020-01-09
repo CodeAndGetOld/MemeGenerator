@@ -2,7 +2,7 @@
   topTextInput = document.getElementById("top-text");
   bottomTextInput = document.getElementById("bottom-text");
   textSize = document.getElementById("text-size");
-  textColor = document.getElementById("text-color");
+  textColor = document.getElementById("txt-color");
   generateBtn = document.getElementById("generate-btn");
   downloadBtn = document.getElementById("download-btn");
   imageInput = document.getElementById("image-input");
@@ -15,8 +15,8 @@
     let fontSize;
     canvas.width = img.width;
     canvas.height = img.height;
-    // ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(img, 0, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     ctx.fillStyle = textColor;
     ctx.strokeStyle = "black";
     ctx.textAlign = "center";
@@ -57,6 +57,7 @@
           canvas.width
         );
       });
+    console.log("done rendering");
   };
 
   generateBtn.addEventListener("click", () => {
@@ -64,15 +65,20 @@
     reader.onload = e => {
       const img = new Image();
       img.src = e.target.result;
-      generateMeme(
-        img,
-        topTextInput.value,
-        bottomTextInput.value,
-        textSize.value,
-        textColor.value
-      );
+      img.onload = () => {
+        console.log("start render");
+        generateMeme(
+          img,
+          topTextInput.value,
+          bottomTextInput.value,
+          textSize.value,
+          textColor.value
+        );
+      };
+      console.log("display render");
     };
     reader.readAsDataURL(imageInput.files[0]);
+    console.log("started");
   });
 
   // download button functionality (var01)
@@ -93,16 +99,4 @@
     a.click();
     document.body.removeChild(a);
   });
-
-  // download button functionality
-
-  //   downloadBtn.addEventListener("click", () => {
-  //     const a = document.createElement("a");
-  //     document.body.appendChild(a);
-  //     a.onclick = function(e) {
-  //       let dataUrl = canvas.toDataURL("image/png");
-  //       a.href = dataUrl;
-  //     };
-  //     document.body.removeChild(a);
-  //   });
 })();
